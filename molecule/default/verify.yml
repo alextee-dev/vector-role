@@ -1,0 +1,23 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Check config file
+      ansible.builtin.stat:
+        path: "/etc/vector/vector.yaml"
+      register: ch_config_files
+
+    - name: Check file exist
+      ansible.builtin.assert:
+        that: "{{ ch_config_files.stat.exists }}"
+
+    - name: Get Service Status
+      ansible.builtin.systemd:
+        name: vector
+      register: vector_service
+
+    - name: Check if the service is running
+      ansible.builtin.assert:
+        that: "{{ vector_status.status }} == running"
+        fail_msg: "Сервис vector не запущен!"

@@ -7,13 +7,13 @@
       changed_when: vector_repo.stdout.find('/etc/yum.repos.d/vector.repo') != -1
 
     - name: Install vector packages
-      become: true
+#      become: true
       ansible.builtin.yum:
         name:
           - vector
 
     - name: Add config
-      become: true
+#      become: true
       ansible.builtin.template:
         src: templates/vector.j2
         dest: /etc/vector/vector.yaml
