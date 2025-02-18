@@ -1,0 +1,7 @@
+---
+driver:
+  name: podman
+platforms:
+  - name: oraclelinux
+    image: oraclelinux:9
+    pre_build_image: true
