@@ -5,4 +5,4 @@
   tasks:
     - name: Include Vector role
       include_role:
-        name: "vector"
+        name: "alexteedev.vector"
