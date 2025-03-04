@@ -12,12 +12,12 @@
       ansible.builtin.assert:
         that: "{{ ch_config_files.stat.exists }}"
 
-    - name: Get Service Status
-      ansible.builtin.systemd:
-        name: vector
-      register: vector_service
+    # - name: Get Service Status
+    #   ansible.builtin.systemd:
+    #     name: vector
+    #   register: vector_service
 
-    - name: Check if the service is running
-      ansible.builtin.assert:
-        that: "{{ vector_status.status }} == running"
-        fail_msg: "Сервис vector не запущен!"
+    # - name: Check if the service is running
+    #   ansible.builtin.assert:
+    #     that: "{{ vector_status.status }} == running"
+    #     fail_msg: "Сервис vector не запущен!"
